@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "628424972383",
+    "project_id": "aplikasi-kuesioner-2f126",
+    "storage_bucket": "aplikasi-kuesioner-2f126.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:628424972383:android:7f4c63dc81103a8af3e3ea",
+        "android_client_info": {
+          "package_name": "com.manajemenproyek.kuesionerr"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdfIrxZq8sNXUVSqxAGfDlC1sW5jJDKEw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
