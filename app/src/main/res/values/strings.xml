@@ -5,4 +5,8 @@
     <string name="text_nav_home">Home</string>
     <string name="text_nav_riwayat">Riwayat</string>
     <string name="text_nav_profile">Profile</string>
+    <string-array name="frequency_options">
+        <item>Sebulan sekali</item>
+        <item>-</item>
+    </string-array>
 </resources>

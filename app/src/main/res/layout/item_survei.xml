@@ -49,7 +49,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:fontFamily="@font/poppins_bold"
-            android:text="Survey Kesehatan Warga" />
+            android:text="Survei Kesehatan Warga" />
 
         <TextView
             android:id="@+id/tv_deadline"

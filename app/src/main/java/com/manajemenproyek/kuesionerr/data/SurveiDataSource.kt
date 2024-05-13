@@ -1,42 +1,42 @@
 package com.manajemenproyek.kuesionerr.data
 
-import com.manajemenproyek.kuesionerr.model.Survey
+import com.manajemenproyek.kuesionerr.model.Survei
 
-interface SurveyDataSource{
-    fun getSurvey(): List<Survey>
+interface SurveiDataSource{
+    fun getSurvei(): List<Survei>
 }
 
-class SurveyDataSourceImpl : SurveyDataSource {
-    override fun getSurvey(): List<Survey> = listOf(
-        Survey(
+class SurveiDataSourceImpl : SurveiDataSource {
+    override fun getSurvei(): List<Survei> = listOf(
+        Survei(
             title = "Survei Kesehatan Warga",
             imgUrl = "https://raw.githubusercontent.com/naufal-hidayat/Kuesionerr/master/app/src/main/res/drawable/survey.png",
             deadline = "26/08/2024",
-            responded = "80/100 orang"
+            description = "Survey ini bertujuan untuk mengumpulkan data tentang kesehatan masyarakat RT X"
         ),
-        Survey(
+        Survei(
             title = "Survei Kesehatan Warga",
             imgUrl = "https://raw.githubusercontent.com/naufal-hidayat/Kuesionerr/master/app/src/main/res/drawable/survey.png",
             deadline = "26/08/2024",
-            responded = "80/100 orang"
+            description = "Survey ini bertujuan untuk mengumpulkan data tentang kesehatan masyarakat RT X"
         ),
-        Survey(
+        Survei(
             title = "Survei Kesehatan Warga",
             imgUrl = "https://raw.githubusercontent.com/naufal-hidayat/Kuesionerr/master/app/src/main/res/drawable/survey.png",
             deadline = "26/08/2024",
-            responded = "80/100 orang"
+            description = "Survey ini bertujuan untuk mengumpulkan data tentang kesehatan masyarakat RT X"
         ),
-        Survey(
+        Survei(
             title = "Survei Kesehatan Warga",
             imgUrl = "https://raw.githubusercontent.com/naufal-hidayat/Kuesionerr/master/app/src/main/res/drawable/survey.png",
             deadline = "26/08/2024",
-            responded = "80/100 orang"
+            description = "Survey ini bertujuan untuk mengumpulkan data tentang kesehatan masyarakat RT X"
         ),
-        Survey(
+        Survei(
             title = "Survei Kesehatan Warga",
             imgUrl = "https://raw.githubusercontent.com/naufal-hidayat/Kuesionerr/master/app/src/main/res/drawable/survey.png",
             deadline = "26/08/2024",
-            responded = "80/100 orang"
+            description = "Survey ini bertujuan untuk mengumpulkan data tentang kesehatan masyarakat RT X"
         ),
     )
 }

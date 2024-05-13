@@ -1,34 +1,31 @@
 package com.manajemenproyek.kuesionerr.home
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.cardview.widget.CardView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.manajemenproyek.kuesionerr.R
+import com.manajemenproyek.kuesionerr.data.PollingDataSource
+import com.manajemenproyek.kuesionerr.data.PollingDataSourceImpl
+import com.manajemenproyek.kuesionerr.data.SurveyDataSource
+import com.manajemenproyek.kuesionerr.data.SurveyDataSourceImpl
+import com.manajemenproyek.kuesionerr.home.adapter.AdapterPolling
+import com.manajemenproyek.kuesionerr.home.adapter.AdapterSurvey
+import com.manajemenproyek.kuesionerr.login.LoginActivity
+import com.manajemenproyek.kuesionerr.model.Polling
+import com.manajemenproyek.kuesionerr.model.Survey
+import com.manajemenproyek.kuesionerr.polling.PollingActivity
+import com.manajemenproyek.kuesionerr.register.RegisterActivity
+import com.manajemenproyek.kuesionerr.survei.SurveiActivity
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [HomeFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class HomeFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,23 +35,42 @@ class HomeFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment HomeFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            HomeFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        showSurvey(view)
+        showPolling(view)
+
+        view.findViewById<TextView>(R.id.tv_lihat_survei).setOnClickListener {
+            val intent = Intent(requireContext(), SurveiActivity::class.java)
+            startActivity(intent)
+        }
+
+        view.findViewById<TextView>(R.id.tv_lihat_polling).setOnClickListener {
+            val intent = Intent(requireContext(), PollingActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+
+    private fun showPolling(view: View) {
+        val rvPolling = view.findViewById<RecyclerView>(R.id.rv_polling)
+        val pollingAdapter = AdapterPolling()
+        rvPolling.adapter = pollingAdapter
+        rvPolling.layoutManager = LinearLayoutManager(requireContext(),
+            LinearLayoutManager.HORIZONTAL, false )
+        val pollingDataSource: PollingDataSource = PollingDataSourceImpl()
+        val pollingList: List<Polling> = pollingDataSource.getPolling()
+        pollingAdapter.setData(pollingList)
+    }
+
+    private fun showSurvey(view: View) {
+        val rvSurvey = view.findViewById<RecyclerView>(R.id.rv_survei)
+        val surveyAdapter = AdapterSurvey()
+        rvSurvey.adapter = surveyAdapter
+        rvSurvey.layoutManager = LinearLayoutManager(requireContext(),
+            LinearLayoutManager.HORIZONTAL, false )
+        val surveyDataSource: SurveyDataSource = SurveyDataSourceImpl()
+        val surveyList: List<Survey> = surveyDataSource.getSurvey()
+        surveyAdapter.setData(surveyList)
     }
 }

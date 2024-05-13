@@ -5,7 +5,7 @@ import kotlinx.parcelize.Parcelize
 import java.util.UUID
 
 @Parcelize
-data class Survey(
+data class Polling(
     val id: String = UUID.randomUUID().toString(),
     val title: String,
     val imgUrl: String,

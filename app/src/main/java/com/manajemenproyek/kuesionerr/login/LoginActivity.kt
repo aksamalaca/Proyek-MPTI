@@ -11,6 +11,7 @@ import com.manajemenproyek.kuesionerr.R
 import com.manajemenproyek.kuesionerr.databinding.ActivityLoginBinding
 import com.manajemenproyek.kuesionerr.register.RegisterActivity
 import com.manajemenproyek.kuesionerr.splash.SplashActivity
+import com.manajemenproyek.kuesionerr.survei.SurveiActivity
 
 class LoginActivity : AppCompatActivity() {
 
