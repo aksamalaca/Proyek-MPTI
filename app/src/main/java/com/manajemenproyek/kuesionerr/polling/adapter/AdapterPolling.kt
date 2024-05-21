@@ -12,7 +12,7 @@ import coil.load
 import com.manajemenproyek.kuesionerr.R
 import com.manajemenproyek.kuesionerr.model.Polling
 
-class AdapterPolling : RecyclerView.Adapter<PollingItemViewHolder>() {
+class AdapterPolling(private val listener: OnItemClickListener) : RecyclerView.Adapter<PollingItemViewHolder>() {
 
     private val differCallback = object : DiffUtil.ItemCallback<Polling>() {
         override fun areItemsTheSame(oldItem: Polling, newItem: Polling): Boolean {
@@ -32,7 +32,7 @@ class AdapterPolling : RecyclerView.Adapter<PollingItemViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PollingItemViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_polling_near, parent, false)
-        return PollingItemViewHolder(itemView)
+        return PollingItemViewHolder(itemView, listener)
     }
 
     override fun getItemCount(): Int = differ.currentList.size
@@ -42,12 +42,16 @@ class AdapterPolling : RecyclerView.Adapter<PollingItemViewHolder>() {
     }
 }
 
-class PollingItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+class PollingItemViewHolder(itemView: View, private  val listener: OnItemClickListener) : RecyclerView.ViewHolder(itemView) {
     fun bind(item: Polling) {
         // Ganti dengan ID ImageView, TextView, dll. yang sesuai dengan tata letak Anda
         itemView.findViewById<ImageView>(R.id.iv_polling_list).load(item.imgUrl)
         itemView.findViewById<TextView>(R.id.tv_title_polling).text = item.title
         itemView.findViewById<TextView>(R.id.tv_deadline_polling).text = item.deadline
         itemView.findViewById<TextView>(R.id.tv_progress_polling).text = item.responded
+
+        itemView.setOnClickListener{
+            listener.onItemClick(item)
+        }
     }
 }

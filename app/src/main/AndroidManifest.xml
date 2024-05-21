@@ -15,6 +15,18 @@
         android:theme="@style/Theme.Kuesionerr"
         tools:targetApi="31">
         <activity
+            android:name=".popup.polling.PopupPollingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".popup.survei.PopupSurveiActivity"
+            android:exported="false" />
+        <activity
+            android:name=".tpolling.TPollingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".tsurvei.TSurveiActivity"
+            android:exported="false" />
+        <activity
             android:name=".polling.PollingActivity"
             android:exported="false" />
         <activity

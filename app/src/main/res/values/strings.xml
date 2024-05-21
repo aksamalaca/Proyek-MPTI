@@ -5,8 +5,14 @@
     <string name="text_nav_home">Home</string>
     <string name="text_nav_riwayat">Riwayat</string>
     <string name="text_nav_profile">Profile</string>
-    <string-array name="frequency_options">
-        <item>Sebulan sekali</item>
-        <item>-</item>
+
+    <string-array name="health_checkup_frequency">
+        <item>Setiap minggu</item>
+        <item>Setiap bulan</item>
+        <item>Setiap tiga bulan</item>
+        <item>Setiap enam bulan</item>
+        <item>Setiap tahun</item>
+        <item>Lebih dari setahun</item>
     </string-array>
+
 </resources>

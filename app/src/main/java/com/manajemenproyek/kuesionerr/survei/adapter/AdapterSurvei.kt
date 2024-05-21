@@ -12,7 +12,7 @@ import coil.load
 import com.manajemenproyek.kuesionerr.R
 import com.manajemenproyek.kuesionerr.model.Survei
 
-class AdapterSurvei : RecyclerView.Adapter<SurveiItemViewHolder>() {
+class AdapterSurvei(private val listener: OnItemClickListener) : RecyclerView.Adapter<SurveiItemViewHolder>() {
 
     private val differCallback = object : DiffUtil.ItemCallback<Survei>() {
         override fun areItemsTheSame(oldItem: Survei, newItem: Survei): Boolean {
@@ -32,7 +32,7 @@ class AdapterSurvei : RecyclerView.Adapter<SurveiItemViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SurveiItemViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_survei_near, parent, false)
-        return SurveiItemViewHolder(itemView)
+        return SurveiItemViewHolder(itemView, listener)
     }
 
     override fun getItemCount(): Int = differ.currentList.size
@@ -42,12 +42,15 @@ class AdapterSurvei : RecyclerView.Adapter<SurveiItemViewHolder>() {
     }
 }
 
-class SurveiItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+class SurveiItemViewHolder(itemView: View, private val listener: OnItemClickListener) : RecyclerView.ViewHolder(itemView) {
     fun bind(item: Survei) {
-        // Ganti dengan ID ImageView, TextView, dll. yang sesuai dengan tata letak Anda
         itemView.findViewById<ImageView>(R.id.iv_survei_list).load(item.imgUrl)
         itemView.findViewById<TextView>(R.id.tv_title_survei).text = item.title
         itemView.findViewById<TextView>(R.id.tv_deadline_survei).text = item.deadline
         itemView.findViewById<TextView>(R.id.tv_keterangan_survei).text = item.description
+
+        itemView.setOnClickListener {
+            listener.onItemClick(item)
+        }
     }
 }

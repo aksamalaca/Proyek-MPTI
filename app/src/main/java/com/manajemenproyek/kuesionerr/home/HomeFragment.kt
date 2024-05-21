@@ -49,6 +49,7 @@ class HomeFragment : Fragment() {
             val intent = Intent(requireContext(), PollingActivity::class.java)
             startActivity(intent)
         }
+
     }
 
 
